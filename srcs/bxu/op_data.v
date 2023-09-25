@@ -63,7 +63,7 @@ module op_data
 
     reg r_data_wr = 1'b0;
     reg r_data_wr_delay = 1'b0;
-    assign data_wr = r_data_wr & r_data_wr_delay;
+    assign data_wr = r_data_wr & r_data_wr_delay & ~clk;
 
     always @(posedge clk or negedge rst_n) begin
         if (~rst_n) begin
