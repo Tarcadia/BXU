@@ -58,20 +58,20 @@ module top_uart_echo
         .dbg_clk(clk_50M)
     );
     
-    ila_0 u_ial_0(
-        .clk(clk_50M),
-        .probe0(uart_rx),
-        .probe1(ready),
-        .probe2(done),
-        .probe3(uart_tx),
-        .probe4(clk_uart),
-        .probe5(0),
-        .probe6(0),
-        .probe7(0),
-        .probe8(0),
-        .probe9(0),
-        .probe10(data),
-        .probe11(0)
-    );
+    // ila_0 u_ial_0(
+    //     .clk(clk_50M),
+    //     .probe0(uart_rx),
+    //     .probe1(ready),
+    //     .probe2(done),
+    //     .probe3(uart_tx),
+    //     .probe4(clk_uart),
+    //     .probe5(0),
+    //     .probe6(0),
+    //     .probe7(0),
+    //     .probe8(0),
+    //     .probe9(0),
+    //     .probe10(data),
+    //     .probe11(0)
+    // );
     
 endmodule
