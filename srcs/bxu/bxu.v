@@ -1,33 +1,33 @@
 `timescale 1ns / 1ps
 
-// BIT ORDER        : 01 23     F E D C BA987654
+// BIT ORDER        : 01 23                 F E D C BA987654    3:0
 
-// nop              : 00 00     X X X X XXXXXXXX
+// nop              : 00 00                 X X X X XXXXXXXX    0
 
-// d[]+     #inst   : 01 00     0 0 0 0 #inst
-// d[]-     #inst   : 01 00     1 0 0 0 #inst
-// d[]=     #inst   : 01 01     0 0 0 0 #inst
-// d[]=     d[]     : 01 01     0 0 1 0 00000000
+// d[]+     #inst   : 01 00                 0 0 0 0 #inst       2
+// d[]-     #inst   : 01 00                 1 0 0 0 #inst       2
+// d[]=     #inst   : 01 01                 0 0 0 0 #inst       A
+// d[]=     d[]     : 01 01                 0 0 1 0 00000000    A
 
-// seek+    #inst   : 01 10     0 #inst
-// seek-    #inst   : 01 10     1 #inst
-// seekl=   #inst   : 01 11     0 0 0 0 #inst
-// seekh=   #inst   : 01 11     0 0 0 1 #inst
-// seekl=   d[]     : 01 11     0 0 1 0 XXXXXXXX
-// seekh=   d[]     : 01 11     0 0 1 1 XXXXXXXX
+// seek+    #inst   : 01 10                 0 #inst             6
+// seek-    #inst   : 01 10                 1 #inst             6
+// seekl=   #inst   : 01 11                 0 0 0 0 #inst       E
+// seekh=   #inst   : 01 11                 0 0 0 1 #inst       E
+// seekl=   d[]     : 01 11                 0 0 1 0 XXXXXXXX    E
+// seekh=   d[]     : 01 11                 0 0 1 1 XXXXXXXX    E
 
-// jmp+     #inst   : 10 00     0 #inst
-// jmp-     #inst   : 10 00     1 #inst
-// jmp=     #inst   : 10 01     #inst
+// jmp+     #inst   : 10 00                 0 #inst             1
+// jmp-     #inst   : 10 00                 1 #inst             1
+// jmp=     #inst   : 10 01                 #inst               9
 
-// jz+      #isnt   : 10 11     0 #inst
-// jz-      #isnt   : 10 11     1 #inst
-// jnz+     #inst   : 10 10     0 #inst
-// jnz-     #inst   : 10 10     1 #inst
+// jz+      #isnt   : 10 11                 0 #inst             D
+// jz-      #isnt   : 10 11                 1 #inst             D
+// jnz+     #inst   : 10 10                 0 #inst             5
+// jnz-     #inst   : 10 10                 1 #inst             5
 
-// in               : 11 01     0 0 0 0 00000000
-// out      #inst   : 11 00     0 0 0 0 #inst
-// out      d[]     : 11 00     0 0 1 0 00000000
+// in               : 11 01                 0 0 0 0 00000000    B
+// out      #inst   : 11 00                 0 0 0 0 #inst       3
+// out      d[]     : 11 00                 0 0 1 0 00000000    3
 
 module bxu
 #(
@@ -231,33 +231,29 @@ module bxu
 
     );
 
-//    ila_1 u_ila_1
-//    (
-//        .clk(dbg_clk),
-//        .probe0(io_input_ready),
-//        .probe1(io_output_ready),
-//        .probe2(code_in),
-//        .probe3(data_in),
-//        .probe4(flag_op_caddr),
-//        .probe5(flag_op_daddr),
-//        .probe6(flag_op_data),
-//        .probe7(2'h0),
-//        .probe8(flag_op_data_wr),
-//        .probe9(flag_op_input_done),
-//        .probe10(flag_op_output_ready),
-//        .probe11(flag_cond_zero),
-//        .probe12(data_wr),
-//        .probe13(io_input_ready),
-//        .probe14(io_input_done),
-//        .probe15(io_output_ready),
-//        .probe16(io_output_done),
-//        .probe17(0),
-//        .probe18(0),
-//        .probe19(0),
-//        .probe20(0),
-//        .probe21(0),
-//        .probe22(rst_n),
-//        .probe23(clk)
-//    );
+    ila_bxu u_ila_bxu
+    (
+        .clk(dbg_clk),
+        .probe0(clk),
+        .probe1(rst_n),
+        .probe2(code_addr),
+        .probe3(code_in),
+        .probe4(data_addr),
+        .probe5(data_in),
+        .probe6(data_out),
+        .probe7(data_wr),
+        .probe8(io_input_data),
+        .probe9(io_input_ready),
+        .probe10(io_input_done),
+        .probe11(io_output_ready),
+        .probe12(io_output_done),
+        .probe13(flag_op_caddr),
+        .probe14(flag_op_daddr),
+        .probe15(flag_op_data),
+        .probe16(flag_op_data_wr),
+        .probe17(flag_op_input_done),
+        .probe18(flag_op_output_ready)
 
+    );
+    
 endmodule
