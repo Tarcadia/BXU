@@ -92,7 +92,8 @@ module top_uart_bxu_echo
     )
     u_bxu
     (
-        .clk(clk_100M),
+        // .clk(clk_100M),
+        .clk(clk_5M),
         .rst_n(flag_clk_locked),
 
         .code_addr(code_addr),
@@ -133,7 +134,8 @@ module top_uart_bxu_echo
         .wr(data_wr)
     );
 
-    rom_uart_bxu_echo
+//    rom_uart_bxu_echo
+    rom_a_plus_b
     #(
         .DATA_BITWIDTH(CODE_BITWIDTH),
         .ADDR_BITWIDTH(ADDR_BITWIDTH)
@@ -145,7 +147,7 @@ module top_uart_bxu_echo
     );
 
 
-//    ila_0 u_ial_0(
+//    ila_0 u_ila_0(
 //        .clk(clk_50M),
 //        .probe0(uart_rx),
 //        .probe1(data_wr),
@@ -160,5 +162,5 @@ module top_uart_bxu_echo
 //        .probe10(data_out),
 //        .probe11(code)
 //    );
-    
+
 endmodule
