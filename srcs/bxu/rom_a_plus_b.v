@@ -379,20 +379,20 @@ module rom_a_plus_b
     ////////////////////////////////////////////////////////
 
     assign data[16'H0020]   = 16'H_004E;
-    assign data[16'H0002]   = 16'H_000A;
-    assign data[16'H0021]   = 16'H_000B;
-    assign data[16'H0022]   = 16'H_2003;
-    assign data[16'H0023]   = 16'H_8302;
-    assign data[16'H0024]   = 16'H_005E;
-    assign data[16'H0025]   = 16'H_000A;
-    assign data[16'H0026]   = 16'H_000B;
-    assign data[16'H0027]   = 16'H_2003;
-    assign data[16'H0028]   = 16'H_8302;
-    assign data[16'H0029]   = 16'H_006E;
-    assign data[16'H002A]   = 16'H_000A;
-    assign data[16'H002B]   = 16'H_000B;
-    assign data[16'H002C]   = 16'H_2003;
-    assign data[16'H002D]   = 16'H_8302;
+    assign data[16'H0021]   = 16'H_000A;
+    assign data[16'H0022]   = 16'H_000B;
+    assign data[16'H0023]   = 16'H_2003;
+    assign data[16'H0024]   = 16'H_8302;
+    assign data[16'H0025]   = 16'H_005E;
+    assign data[16'H0026]   = 16'H_000A;
+    assign data[16'H0027]   = 16'H_000B;
+    assign data[16'H0028]   = 16'H_2003;
+    assign data[16'H0029]   = 16'H_8302;
+    assign data[16'H002A]   = 16'H_006E;
+    assign data[16'H002B]   = 16'H_000A;
+    assign data[16'H002C]   = 16'H_000B;
+    assign data[16'H002D]   = 16'H_2003;
+    assign data[16'H002E]   = 16'H_8302;
 
     // read_return_1:
     assign data[16'H0030]   = 16'H_000E;
